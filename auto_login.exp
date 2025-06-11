@@ -1,28 +1,24 @@
 #!/usr/bin/expect -f
-
 set timeout -1
-cd ~/rl-swarm
-
 spawn ./run_rl_swarm.sh
-
 expect {
-    "Do you want to join the testnet" {
+    "connect to the Testnet? \\Y/n\\" {
         send "Y\r"
         exp_continue
     }
-    "Solve the following math problem" {
+    "math problem" {
         send "A\r"
         exp_continue
     }
-    "Enter a number between 1 and 7" {
+    "parameters.*:" {
         send "7\r"
         exp_continue
     }
-    "Do you have a HuggingFace token" {
+    "hugging.*token.*\Y/n\" {
         send "N\r"
         exp_continue
     }
-    "Enter the OTP" {
+    "OTP:" {
         interact
     }
 }
