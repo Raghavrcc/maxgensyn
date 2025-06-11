@@ -2,19 +2,19 @@
 set timeout -1
 spawn ./run_rl_swarm.sh
 expect {
-    "connect to the Testnet? \\Y/n\\" {
+    "Testnet? Y/n" {
         send "Y\r"
         exp_continue
     }
-    "math problem" {
+    -re "math.*:" {
         send "A\r"
         exp_continue
     }
-    "parameters.*:" {
+    -re "parameters.*:" {
         send "7\r"
         exp_continue
     }
-    "hugging.*token.*\Y/n\" {
+    -re "hugging.*Y/n" {
         send "N\r"
         exp_continue
     }
