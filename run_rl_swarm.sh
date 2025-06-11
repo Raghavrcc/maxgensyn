@@ -1,3 +1,3 @@
 #!/bin/bash
 cd rl-swarm
-yarn workspace rl-swarm node src/index.ts
+yarn workspace @rl-swarm/rl-swarm start
